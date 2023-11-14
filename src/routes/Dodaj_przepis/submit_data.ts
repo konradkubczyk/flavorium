@@ -5,7 +5,7 @@ export function submitData(){
     
     let name=getElementById("name").value;
     let currentValue: string[];
-    $:currentValue= names;
+    $:currentValue=     names;
     names.set([...currentValue,name]);
     alert(name);
     
