@@ -7,11 +7,20 @@ import { writable } from 'svelte/store';
 // Initialize the store with an empty array
 //const names = writable<nameType>([]);
 
+// interface Name {
+//     text: string;
+//     id: number;
+// }
 
+// const names = writable(new Array<Name>());
 
-//const names= writable<string[]>([]);  TO DZIŁAŁO JAKOŚ
-//TODO ZROBIĆ ŻEBY TUTAJ NIE BYŁO WARTOŚĆI POCZĄTKOWYCH 
-const names= writable([{text:"",id:0}]);
+interface Recipe {
+    name?: string;
+    description?: string;
+    ingredients?: string[];
+    steps?: string[];
+}
 
+const recipeStore = writable(new Array<Recipe>());
 
-export default names;
+export { recipeStore };

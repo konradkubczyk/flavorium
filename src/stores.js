@@ -2,4 +2,6 @@ import { writable } from 'svelte/store';
 
 const names = writable([]);
 
-export default names;
+const recipes = writable([]);
+
+export default { names, recipes};

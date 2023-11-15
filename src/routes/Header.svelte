@@ -19,12 +19,11 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Strona główna</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/Dodaj przepis' ? 'page' : undefined}>
-				<a href="/Dodaj_przepis">Dodaj przepis</a>
+			<li aria-current={$page.url.pathname === '/dodaj-przepis' ? 'page' : undefined}>
+				<a href="/dodaj-przepis">Dodaj przepis</a>
 			</li>
-			<li aria-current={$page.url.pathname==='/test' ? 'page': undefined}>
-				<a href="test">Lista przepisów</a>
-
+			<li aria-current={$page.url.pathname==='/lista-przepisow' ? 'page': undefined}>
+				<a href="/lista-przepisow">Lista przepisów</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
 				<a href="/sverdle">Sverdle</a>

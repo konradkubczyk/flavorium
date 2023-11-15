@@ -1,8 +1,8 @@
 <script>
-//	import Counter from './Counter.svelte';
-//	import welcome from '$lib/images/svelte-welcome.webp';
-//	import welcome_fallback from '$lib/images/svelte-welcome.png';
-import placeholder from '$lib/images/placementpreview.png'
+	//	import Counter from './Counter.svelte';
+	//	import welcome from '$lib/images/svelte-welcome.webp';
+	//	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import placeholder from '$lib/images/placementpreview.jpg';
 </script>
 
 <svelte:head>
@@ -13,19 +13,13 @@ import placeholder from '$lib/images/placementpreview.png'
 <section>
 	<h1>
 		<span class="welcome">
-			
-			<h2> Witam na stronie z przepisami</h2>
+			<h2>Witam na stronie z przepisami</h2>
 
-			<picture >
-				 <img src={placeholder} alt="Placeholder"/>
-
-				
+			<picture>
+				<img src={placeholder} alt="Placeholder" />
 			</picture>
 		</span>
-
-		
-
-	
+	</h1>
 </section>
 
 <style>
@@ -48,6 +42,4 @@ import placeholder from '$lib/images/placementpreview.png'
 		height: 0;
 		padding: 0 0 calc(100% * 495 / 2048) 0;
 	}
-
-
 </style>
