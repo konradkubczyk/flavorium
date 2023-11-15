@@ -19,6 +19,10 @@ interface Recipe {
     description?: string;
     ingredients?: string[];
     steps?: string[];
+    isVegan?:boolean;
+    type?:string;
+    subType?:string;
+
 }
 
 const recipeStore = writable(new Array<Recipe>());

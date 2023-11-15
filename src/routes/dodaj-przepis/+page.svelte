@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
+	
 	//	import Counter from './Counter.svelte';
 	//	import welcome from '$lib/images/svelte-welcome.webp';
 	//	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import { recipeData, handleSubmit } from './submit-data';
+	let newRecipeData= recipeData;
 </script>
 
 <svelte:head>
@@ -31,6 +33,45 @@
                 placeholder="Pyszne tosty, które zrobiłem wczoraj..."
 				bind:value={recipeData.description}
 			></textarea>
+		</div>
+		<div>
+			<label for="typeSelect" >Wybierz Rodzaj</label>
+			<select id="typeSelect" bind:value={recipeData.type} >
+				<option disabled selected value="">Wybierz </option>
+				<option value="food">jedzenie</option>
+				<option value="drink">napój</option>
+			</select>
+		
+		</div>
+		<div>
+			<label for="subtype">Wybierz</label>
+			<select id="subtype" bind:value={recipeData.subType}>
+				
+				{#if recipeData.type=="drink"}
+				<option disabled selected value="">Wybierz typ napoju</option>
+
+				<option value="hotDrink">Ciepły napój</option>
+				<option value="coldDrink">Napój</option>
+				<option value="alcoholicDrink">Napój z alkoholem</option>
+				
+				{:else if recipeData.type=="food"}
+				<option disabled selected value="">Wybierz typ potrawy</option>
+				<option value="pasta">makaron</option>
+				<option value="soup">zupa</option>
+				<option value="pastery">pieczywo</option>
+				{:else}
+				<option disabled selected value="">Wybierz Rodzaj powyżej </option>
+				
+
+				{/if}
+				
+
+			</select>
+		</div>
+		<div>
+			<input id="isVegan" type="checkbox">
+			<label for="isVegan">Czy przepis jest wegański?</label>
+
 		</div>
 		<!-- <div class="form-group">
 			<label for="nip">NIP</label>
