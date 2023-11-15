@@ -16,15 +16,14 @@
 	{console.log(recipe.name)}
 	
 		<div class="recipe">
-			<h3>{recipe.name}</h3>
-			<p>{recipe.description}</p>
-			<p>{recipe.type}</p>
-			<p>{recipe.subType}</p>
+			<h3>Nazwa: {recipe.name}, typ: {recipe.type}, podtyp: {recipe.subType}</h3>
+			
 			{#if recipe.isVegan==true}
 			<p>Vegan friendly</p>
 			{:else}
 			<p>Not vegan friendly</p>	
 			{/if}
+			<br>
 		</div>
 	{/each}
 

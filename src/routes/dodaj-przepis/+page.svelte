@@ -70,7 +70,7 @@
 			</select>
 		</div>
 		<div>
-			<input id="isVegan" type="checkbox">
+			<input id="isVegan" type="checkbox" Checked ='true' checked={recipeData.isVegan} >
 			<label for="isVegan">Czy przepis jest wegański?</label>
 
 		</div>
