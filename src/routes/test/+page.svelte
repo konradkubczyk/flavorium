@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { names } from "../../stores";
+	import { get } from "svelte/store";
+    import  names from "../../stores.ts";
 
 	
     import {test} from './test'
@@ -13,24 +14,13 @@
 </svelte:head>
 
 <div class="text-column">
-<h1>{names} </h1>
+    <h2>Lista przepisów które przesłałeś</h2>
+    {#each $names as item}
+    <p>
+       {item.id} {item.text}
+    </p>
+    {/each}
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
+	
     <button on:click={test}>Test</button>
 </div>
