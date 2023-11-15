@@ -1,4 +1,5 @@
 import { recipeStore } from "../../stores.ts";
+import {get,writable} from 'svelte/store';
 
 class Recipe {
     name?: string;
@@ -14,7 +15,9 @@ const recipeData = new Recipe();
 
 function handleSubmit() {
     console.log(recipeData.name);
-    recipeStore.update(arr => [...arr, recipeData]);
+    console.log("Przed update",get(recipeStore));
+    recipeStore.update(arr => [...arr, structuredClone(recipeData)]);
+    console.log("Po update",get(recipeStore));
     
 }
 

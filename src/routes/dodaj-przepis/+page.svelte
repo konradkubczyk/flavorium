@@ -4,7 +4,7 @@
 	//	import welcome from '$lib/images/svelte-welcome.webp';
 	//	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import { recipeData, handleSubmit } from './submit-data';
-	let newRecipeData= recipeData;
+	
 </script>
 
 <svelte:head>
@@ -24,6 +24,7 @@
 				bind:value={recipeData.name}
 			/>
 		</div>
+		
 		<div class="flex flex-col gap-2">
 			<label for="description">Opis</label>
 			<textarea

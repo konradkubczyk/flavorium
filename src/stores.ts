@@ -1,5 +1,5 @@
 // src/stores/myStore.ts
-import { writable } from 'svelte/store';
+import { writable,get } from 'svelte/store';
 
 // Define the type for the store    
 //type nameType = string[];
