@@ -14,4 +14,6 @@ interface Recipe {
 
 const recipeStore = writable(new Array<Recipe>());
 
-export { recipeStore };
+export { recipeStore };  
+export type { Recipe };
+

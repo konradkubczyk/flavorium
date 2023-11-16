@@ -14,11 +14,11 @@ class Recipe {
 const recipeData = new Recipe();
 
 function handleSubmit() {
-    console.log(recipeData.name);
+
     console.log("Przed update", get(recipeStore));
     recipeStore.update(arr => [...arr, structuredClone(recipeData)]);
     console.log("Po update", get(recipeStore));
 
 }
 
-export { recipeData, handleSubmit }
+export { recipeData, handleSubmit,Recipe }
