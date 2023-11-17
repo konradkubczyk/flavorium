@@ -13,10 +13,9 @@
 	<div class="container max-w-md mx-auto">
 		<h1>Lista przepisów, które przesłałeś</h1>
 	{#each $recipeStore as recipe}
-	{console.log(recipe.name)}
 	
 		<div class="recipe">
-			<h3>Nazwa: {recipe.name}, typ: {recipe.type}, podtyp: {recipe.subType}</h3>
+			<h3 id="recipeData">Nazwa: {recipe.name}, typ: {recipe.type}, podtyp: {recipe.subType}</h3>
 			
 			{#if recipe.isVegan==true}
 			<p>Vegan friendly</p>

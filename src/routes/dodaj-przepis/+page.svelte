@@ -42,8 +42,8 @@
 			</select>
 		</div>
 		<div>
-			<label for="subtype">Wybierz</label>
-			<select id="subtype" bind:value={recipeData.subType}>
+			<label for="subTypeSelect">Wybierz</label>
+			<select id="subTypeSelect" bind:value={recipeData.subType}>
 				{#if recipeData.type == 'drink'}
 					<option disabled selected value="">Wybierz typ napoju</option>
 
@@ -61,8 +61,8 @@
 			</select>
 		</div>
 		<div>
-			<input id="isVegan" type="checkbox" bind:checked={recipeData.isVegan} />
-			<label for="isVegan">Czy przepis jest wegański?</label>
+			<input id="isVeganCheckbox" type="checkbox" bind:checked={recipeData.isVegan} />
+			<label for="isVeganCheckbox">Czy przepis jest wegański?</label>
 		</div>
 		<!-- <div class="form-group">
 			<label for="nip">NIP</label>
@@ -106,6 +106,6 @@
 			<input id="active" type="checkbox" class="custom-control-input" />
 			<label class="custom-control-label" for="customControlInline">Aktywny</label>
 		</div> -->
-		<button type="submit"> Dodaj przepis </button>
+		<button id="submitRecipeButton" type="submit"> Dodaj przepis </button>
 	</form>
 </div>
