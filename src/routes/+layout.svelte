@@ -1,5 +1,6 @@
 <script>
 	import Header from './Header.svelte';
+	import Footer from './Footer.svelte';
 	import './styles.css';
 	import "../app.css";
 </script>
@@ -11,7 +12,5 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>Strona stworzona przez studentów UEK</p>
-	</footer>
+	<Footer />
 </div>
