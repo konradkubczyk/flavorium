@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { recipeStore } from '../stores.ts';
 	import type { Recipe } from './dodaj-przepis/submit-data.ts';
-	let numberOfRecipesShown = 2;
+	let numberOfRecipesShown = 5;
 
-	// I love TS syntax 
+	// I love TS syntax
 	let recomendedRecipes: Recipe[] = [];
 
 	while (
@@ -24,61 +24,52 @@
 			currentRecipeInArray++;
 		});
 	}
-
-	//	import Counter from './Counter.svelte';
-	//	import welcome from '$lib/images/svelte-welcome.webp';
-	//	import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import placeholder from '$lib/images/placementpreview.jpg';
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Home Page" />
+	<title>Strona główna</title>
+	<meta name="description" content="Strona główna" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<h2>Witam na stronie z przepisami</h2>
-
-			<!----<picture>
-				<img src={placeholder} alt="Placeholder" />
-			</picture>
-			!-->
-		</span>
-	</h1>
-</section>
-<section>
-	<div id="recommended">
-		{#if recomendedRecipes.length > 0}
-			{#each recomendedRecipes as exampleRecipe}
-				<p>{exampleRecipe.name}</p>
+<section class="container mx-auto">
+	<div
+		class="bg-center bg-cover rounded-3xl overflow-hidden"
+		style="background-image: url('/sam-moghadam-khamseh-yxZSAjyToP4-unsplash.jpg');"
+	>
+		<div class="px-10 py-64 bg-cyan-950/75">
+			<div class="text-cyan-50 text-7xl text-center">
+				Poznaj <a
+					href="/lista-przepisow"
+					class="underline decoration-cyan-700/50 hover:decoration-cyan-700 transition"
+					>nowe inspiracje</a
+				>,
 				<br />
-				<br />
-				<br />
-			{/each}
-		{/if}
+				<a
+					href="/dodaj-przepis"
+					class="underline decoration-cyan-700/50 hover:decoration-cyan-700 transition">dziel się</a
+				> doświadczeniem
+			</div>
+		</div>
 	</div>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-</style>
+{#if recomendedRecipes.length > 0}
+	<section class="container mx-auto py-10">
+		<h2 class="text-center text-3xl text-sky-950">Losowe przepisy</h2>
+		<p class="text-center mt-2 text-sky-900">
+			Sprawdź losowo wybrane przepisy spośród dodanych przez naszych użytkowników. Może znajdziesz
+			coś dla siebie?
+		</p>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mt-10">
+			{#each recomendedRecipes as recommendedRecipe}
+				<a
+					href="/przepis/not-yet-implemented"
+					on:click|preventDefault={() => alert('Not yet implemented')}
+					class="px-5 py-2 border-2 border-sky-950/75 border-dashed rounded-xl"
+				>
+					<div class="text-sky-900 text-2xl">{recommendedRecipe.name}</div>
+					<div class="text-sky-900">{recommendedRecipe.description}</div>
+				</a>
+			{/each}
+		</div>
+	</section>
+{/if}
