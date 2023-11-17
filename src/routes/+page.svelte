@@ -53,7 +53,7 @@
 	</div>
 </section>
 {#if recomendedRecipes.length > 0}
-	<section class="container mx-auto py-10">
+	<section class="container mx-auto mt-10">
 		<h2 class="text-center text-3xl text-sky-950">Losowe przepisy</h2>
 		<p class="text-center mt-2 text-sky-900">
 			Sprawdź losowo wybrane przepisy spośród dodanych przez naszych użytkowników. Może znajdziesz
@@ -64,7 +64,8 @@
 				<a
 					href="/przepis/not-yet-implemented"
 					on:click|preventDefault={() => alert('Not yet implemented')}
-					class="px-5 py-2 border-2 border-sky-950/75 border-dashed rounded-xl"
+					class="px-5 py-2 rounded-xl bg-gradient-to-br from-sky-800/10 to-sky-50 hover:bg-slate-200/75 transition-all duration-300 flex flex-col justify-end"
+					style="overflow-wrap: anywhere;"
 				>
 					<div class="text-sky-900 text-2xl">{recommendedRecipe.name}</div>
 					<div class="text-sky-900">{recommendedRecipe.description}</div>
