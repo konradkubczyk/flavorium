@@ -30,10 +30,10 @@
 					<a href="/dodaj-przepis" class="block py-1 px-2">Dodaj przepis</a>
 				</li>
 				<li
-					aria-current={$page.url.pathname === '/lista-przepisow' ? 'page' : undefined}
+					aria-current={$page.url.pathname === '/przepisy' ? 'page' : undefined}
 					class="font-semibold text-lime-800 aria-[current='page']:bg-lime-100 hover:bg-lime-100 rounded-lg transition duration-200 select-none"
 				>
-					<a href="/lista-przepisow" class="block py-1 px-2">Lista przepisów</a>
+					<a href="/przepisy" class="block py-1 px-2">Lista przepisów</a>
 				</li>
 				<li
 					aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}
