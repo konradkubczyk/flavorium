@@ -31,11 +31,12 @@
 				rows="3"
 				placeholder="Pyszne tosty, które zrobiłem wczoraj..."
 				bind:value={recipeData.description}
+				required
 			></textarea>
 		</div>
 		<div>
 			<label for="typeSelect">Wybierz Rodzaj</label>
-			<select id="typeSelect" bind:value={recipeData.type}>
+			<select id="typeSelect" bind:value={recipeData.type} required>
 				<option disabled selected value="">Wybierz </option>
 				<option value="food">jedzenie</option>
 				<option value="drink">napój</option>
@@ -46,17 +47,16 @@
 			<select id="subTypeSelect" bind:value={recipeData.subType}>
 				{#if recipeData.type == 'drink'}
 					<option disabled selected value="">Wybierz typ napoju</option>
-
 					<option value="hotDrink">Ciepły napój</option>
 					<option value="coldDrink">Napój</option>
 					<option value="alcoholicDrink">Napój z alkoholem</option>
 				{:else if recipeData.type == 'food'}
 					<option disabled selected value="">Wybierz typ potrawy</option>
-					<option value="pasta">makaron</option>
-					<option value="soup">zupa</option>
-					<option value="pastery">pieczywo</option>
+					<option value="pasta">Makaron</option>
+					<option value="soup">Zupa</option>
+					<option value="pastery">Pieczywo</option>
 				{:else}
-					<option disabled selected value="">Wybierz Rodzaj powyżej </option>
+					<option disabled selected value="">Wybierz rodzaj powyżej</option>
 				{/if}
 			</select>
 		</div>
