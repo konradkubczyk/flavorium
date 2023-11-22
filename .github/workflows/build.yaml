@@ -1,0 +1,94 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: false
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build
+      - name: List files in build directory
+        run: ls -la
+     
+      - name: Upload build and .svelte-kit folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: .svelte-kit
+          if-no-files-found: error
+  test:
+    # We depend on the build step for this.
+    needs: build
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    # We need to use the cypress container here, that includes chrome and
+    # firefox.
+    container:
+      image: cypress/base:latest
+      # This is necessary so Cypress can find Firefox.
+      options: --user 1001
+
+   # strategy:
+      
+    #  matrix:
+        # Setting the different browsers we want to test. This is later used in
+        # the cypress action.
+       # browser: [chrome, firefox]
+        # Run copies of the current job in parallel.
+      #  containers: [1, 2]
+    steps:
+      - uses: actions/checkout@v4
+
+      # Download the build from the previous step.
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: .svelte-kit
+      - name: Set up Python
+        # This is the version of the action for setting up Python, not the Python version.
+        uses: actions/setup-python@v4
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+    #  - name: check python version
+      #  run: python --version
+      
+    
+      
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          parallel: true
+          group: 'UI-Chrome'
+          start: npm start
+    
+    
+    
+    #  - name: Cypress run
+     #   uses: cypress-io/github-action@v6
+      #  with:
+          # Simply start a python http server that exposes the build/ dir
+        #  start: python  -m http.server --directory build 5173
+          # Only start tests when the server is up and running.
+         # wait-on: http://localhost:5173/
+          # A simple python http server should really never take longer
+          # than 10 seconds to start.
+        #  wait-on-timeout: 10
+        #  browser: chrome
+
