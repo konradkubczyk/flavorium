@@ -1,4 +1,5 @@
 import { each } from "cypress/types/bluebird"
+import { text } from "stream/consumers"
 
 describe('template spec', () => {
   it('Adds a first recipe and then checks if it is present on recipe list site', () => {
@@ -56,6 +57,12 @@ describe('template spec', () => {
 
     })
     cy.contains("Strona").click()
+    cy.get("#recommendedRecipe").invoke("text").should("match",/Zupa pomidorowa|Muffin bananowy/)
+
+
+
+
+    
 
    
   })

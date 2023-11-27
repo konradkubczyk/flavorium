@@ -66,6 +66,7 @@
 					on:click|preventDefault={() => alert('Not yet implemented')}
 					class="px-5 py-2 rounded-xl bg-gradient-to-br from-sky-800/10 to-sky-50 hover:bg-slate-200/75 transition-all duration-300 flex flex-col justify-end"
 					style="overflow-wrap: anywhere;"
+					id="recommendedRecipe"
 				>
 					<div class="text-sky-900 text-2xl">{recommendedRecipe.name}</div>
 					<div class="text-sky-900">{recommendedRecipe.description}</div>
