@@ -9,7 +9,6 @@ interface Recipe {
     isVegan?: boolean;
     type?: string;
     subType?: string;
-
 }
 
 const recipeStore = writable(new Array<Recipe>());
