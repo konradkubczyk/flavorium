@@ -6,7 +6,7 @@ describe('template spec', () => {
     cy.contains("Dodaj przepis").click()
     //Poczytaj jak uniknąć tego waita https://github.com/cypress-io/cypress/issues/3817
     //https://github.com/kuceb/cypress-plugin-tab
-    cy.wait(500)
+    cy.wait(1500)
     cy.get("#name").type("Zupa pomidorowa")
     cy.get("#description").type("Bardzo smaczna zupa pomidorowa zrobiona z rosołu z wczoraj")
     cy.wait(500)
