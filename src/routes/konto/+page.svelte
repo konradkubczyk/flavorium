@@ -184,7 +184,7 @@
 											class="flex-1 p-2 rounded-lg bg-amber-300 hover:bg-amber-400 disabled:bg-amber-200 disabled:opacity-75 active:scale-95 transition"
 											disabled={processing}>
 								{#if processing}
-									Logowanie...
+									Rejestracja...
 								{:else}
 									Zarejestruj się
 								{/if}
