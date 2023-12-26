@@ -37,12 +37,6 @@
 				>
 					<a href="/przepisy">Lista przepisów</a>
 				</li>
-				<li
-					aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}
-					class="font-semibold text-green-800 border-y-2 border-transparent aria-[current='page']:border-b-green-600/50 hover:border-b-green-600 transition duration-200 select-none self-center"
-				>
-					<a href="/sverdle">Sverdle</a>
-				</li>
 				{#if $account.isLoggedIn}
 					<li class="flex gap-1">
 						<a
