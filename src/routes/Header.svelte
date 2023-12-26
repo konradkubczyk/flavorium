@@ -1,6 +1,8 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/reshot-icon-flame-fry-ANFDU9SYBC.svg';
+	import userIcon from '$lib/images/user-solid.svg';
+	import { account } from '$lib/stores/account';
 </script>
 
 <header class="container mx-auto m-3 flex gap-10 py-2 justify-between">
@@ -16,41 +18,57 @@
 	</div>
 	<div class="flex gap-5 items-center">
 		<nav class="flex items-center">
-			<ul class="flex gap-3">
+			<ul class="flex gap-5">
 				<li
 					aria-current={$page.url.pathname === '/' ? 'page' : undefined}
-					class="font-semibold text-orange-800 aria-[current='page']:bg-orange-100 hover:bg-orange-100 rounded-lg transition duration-200 select-none"
+					class="font-semibold text-orange-800 border-y-2 border-transparent aria-[current='page']:border-b-orange-600/50 hover:border-b-orange-600 transition duration-200 select-none self-center"
 				>
-					<a href="/" class="block py-1 px-2">Strona główna</a>
+					<a href="/">Strona główna</a>
 				</li>
 				<li
 					aria-current={$page.url.pathname === '/dodaj-przepis' ? 'page' : undefined}
-					class="font-semibold text-yellow-800 aria-[current='page']:bg-yellow-100 hover:bg-yellow-100 rounded-lg transition duration-200 select-none"
+					class="font-semibold text-yellow-800 border-y-2 border-transparent aria-[current='page']:border-b-yellow-600/50 hover:border-b-yellow-600 transition duration-200 select-none self-center"
 				>
-					<a href="/dodaj-przepis" class="block py-1 px-2">Dodaj przepis</a>
+					<a href="/dodaj-przepis">Dodaj przepis</a>
 				</li>
 				<li
-					aria-current={$page.url.pathname === '/lista-przepisow' ? 'page' : undefined}
-					class="font-semibold text-lime-800 aria-[current='page']:bg-lime-100 hover:bg-lime-100 rounded-lg transition duration-200 select-none"
+					aria-current={$page.url.pathname === '/przepisy' ? 'page' : undefined}
+					class="font-semibold text-green-800 border-y-2 border-transparent aria-[current='page']:border-b-green-600/50 hover:border-b-green-600 transition duration-200 select-none self-center"
 				>
-					<a href="/lista-przepisow" class="block py-1 px-2">Lista przepisów</a>
+					<a href="/przepisy">Lista przepisów</a>
 				</li>
 				<li
 					aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}
-					class="font-semibold text-green-800 aria-[current='page']:bg-green-100 hover:bg-green-100 rounded-lg transition duration-200 select-none"
+					class="font-semibold text-green-800 border-y-2 border-transparent aria-[current='page']:border-b-green-600/50 hover:border-b-green-600 transition duration-200 select-none self-center"
 				>
-					<a href="/sverdle" class="block py-1 px-2">Sverdle</a>
+					<a href="/sverdle">Sverdle</a>
 				</li>
+				{#if $account.isLoggedIn}
+					<li class="flex gap-1">
+						<a
+							href="/konto"
+							aria-current={$page.url.pathname.startsWith('/konto') ? 'page' : undefined}
+							class="flex items-center p-1 rounded-full transition duration-200 select-none active:scale-95 border-2 border-neutral-200 aria-[current='page']:bg-cyan-50 hover:border-cyan-800 aria-[current='page']:border-cyan-800"
+						>
+							<div
+								class="bg-cyan-800 rounded-full h-8 w-8 flex items-center justify-center overflow-clip"
+							>
+								<img src={userIcon} alt="User account icon" class="h-full mx-auto pt-2 invert" />
+							</div>
+							<div class="text-cyan-800 text-sm font-semibold p-2 mr-0.5">
+								{$account.name}
+							</div>
+						</a>
+					</li>
+				{:else}
+					<li
+						aria-current={$page.url.pathname.startsWith('/konto') ? 'page' : undefined}
+						class="font-semibold text-cyan-800 aria-[current='page']:bg-cyan-50 hover:bg-cyan-50 rounded-lg transition duration-200 select-none active:scale-95 border-2 border-neutral-200 hover:border-cyan-800 aria-[current='page']:border-cyan-800"
+					>
+						<a href="/konto" class="block py-1 px-2">Zaloguj się</a>
+					</li>
+				{/if}
 			</ul>
 		</nav>
-		<div>
-			<a
-				href="/konto"
-				aria-current={$page.url.pathname.startsWith('/konto') ? 'page' : undefined}
-				class="aria-[current='page']:rounded-xl aria-[current='page']:outline-offset-4 flex items-center gap-3 w-10 h-10 rounded-3xl outline outline-offset-2 outline-cyan-800 transition-all duration-200 overflow-hidden"
-			>
-				<img src="/ben-sweet-2LowviVHZ-E-unsplash.jpg" alt="" />
-			</a>
-		</div>
 	</div>
 </header>
