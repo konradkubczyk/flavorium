@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	export let data;
 </script>
 
@@ -17,23 +18,23 @@
 	<div class="flex flex-col gap-5">
 		{#each data.recipes as recipe}
 			<button
-				on:click={() => window.location.href = `/przepis/${recipe.$id}`}
+				on:click={() => goto(`/przepis/${recipe.$id}`)}
 				class="flex flex-col gap-5 bg-slate-100 rounded-lg p-5 text-left hover:bg-slate-200/75 transition-colors"
 			>
 				<h2 class="text-xl">{recipe.name}</h2>
 				<p>{recipe.description}</p>
 				<div class="flex gap-5 flex-wrap">
 					<div class="whitespace-nowrap">
-						<span class="font-bold">Poziom trudności:</span>
-						<span>{recipe.difficulty}/3</span>
+						<span>Poziom trudności:</span>
+						<span class="font-bold">{recipe.difficulty}/3</span>
 					</div>
 					<div class="whitespace-nowrap">
-						<span class="font-bold">Czas przygotowania:</span>
-						<span>{recipe.time} min</span>
+						<span>Czas przygotowania:</span>
+						<span class="font-bold">{recipe.time} min</span>
 					</div>
 					<div class="whitespace-nowrap">
-						<span class="font-bold">Porcje:</span>
-						<span>{recipe.servings}</span>
+						<span>Porcje:</span>
+						<span class="font-bold">{recipe.servings}</span>
 					</div>
 				</div>
 			</button>
