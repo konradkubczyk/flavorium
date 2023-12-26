@@ -27,6 +27,8 @@ export async function submitRecipe() {
 	);
 	const data = await res.json();
 	goto(`/przepis/${data.$id}`);
+	isSubmitting = false;
+	recipe = new Recipe();
 }
 
 export function refreshArrays() {
@@ -42,4 +44,4 @@ export function refreshArrays() {
 	}
 }
 
-export const recipe = new Recipe();
+export let recipe = new Recipe();
