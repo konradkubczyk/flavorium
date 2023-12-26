@@ -23,18 +23,26 @@
 			>
 				<h2 class="text-xl">{recipe.name}</h2>
 				<p>{recipe.description}</p>
-				<div class="flex gap-5 flex-wrap">
-					<div class="whitespace-nowrap">
-						<span>Poziom trudności:</span>
-						<span class="font-bold">{recipe.difficulty}/3</span>
+				<div class="flex justify-between">
+					<div class="flex gap-5 flex-wrap">
+						<div class="whitespace-nowrap">
+							<span>Poziom trudności:</span>
+							<span class="font-bold">{recipe.difficulty}/3</span>
+						</div>
+						<div class="whitespace-nowrap">
+							<span>Czas przygotowania:</span>
+							<span class="font-bold">{recipe.time} min</span>
+						</div>
+						<div class="whitespace-nowrap">
+							<span>Porcje:</span>
+							<span class="font-bold">{recipe.servings}</span>
+						</div>
 					</div>
-					<div class="whitespace-nowrap">
-						<span>Czas przygotowania:</span>
-						<span class="font-bold">{recipe.time} min</span>
-					</div>
-					<div class="whitespace-nowrap">
-						<span>Porcje:</span>
-						<span class="font-bold">{recipe.servings}</span>
+					<div class="flex gap-5 flex-wrap">
+						<div class="whitespace-nowrap">
+							<span>Dodano:</span>
+							<span class="font-bold">{new Date(recipe.$createdAt).getDate()}/{new Date(recipe.$createdAt).getMonth()}/{new Date(recipe.$createdAt).getFullYear()}</span>
+						</div>
 					</div>
 				</div>
 			</button>
