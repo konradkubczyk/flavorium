@@ -12,6 +12,7 @@ export async function load() {
     const data = await res.json();
 
     // Sort recipes by date from newest to oldest
+    // @ts-expect-error - $createdAt is not a property of Recipe
     data.documents.sort((a, b) => {
         const aDate = new Date(a.$createdAt);
         const bDate = new Date(b.$createdAt);
