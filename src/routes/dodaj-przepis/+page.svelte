@@ -1,24 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-
-	let isLoggedIn: boolean | null = null;
-
-	async function checkIfLoggedIn() {
-		const res = await fetch(
-			'https://cloud.appwrite.io/v1/account/sessions/current',
-			{
-				method: 'GET',
-				credentials: 'include',
-				headers: {
-					'Content-Type': 'application/json',
-					'X-Appwrite-Project': '6556209062be5c6ce4b0'
-				}
-			}
-		);
-		isLoggedIn = res.status === 200;
-	}
-
-	checkIfLoggedIn();
+	import { account } from '$lib/stores/account.ts';
 
 	let isSubmitting = false;
 
@@ -39,7 +21,7 @@
 					'data': {
 						...recipe,
 						'ingredients': recipe.ingredients.filter(ingredient => ingredient.name !== null),
-						'steps': recipe.steps.filter(step => step.description !== null),
+						'steps': recipe.steps.filter(step => step.description !== null)
 					}
 				})
 			}
@@ -132,9 +114,7 @@
 
 <div class="container max-w-2xl mx-auto">
 
-	{#if isLoggedIn === null}
-		<p>Sprawdzam status autoryzacji...</p>
-	{:else if isLoggedIn}
+	{#if $account.isLoggedIn}
 		<form on:submit|preventDefault={submitRecipe} class="flex flex-col gap-5">
 			<div class="flex flex-col gap-2">
 				<label for="name">Nazwa przepisu</label>
@@ -336,6 +316,15 @@
 			</button>
 		</form>
 	{:else}
-		<h1>Musisz być zalogowany, aby dodać przepis.</h1>
+		<span>
+			Musisz się
+			<a
+				href="/konto"
+				class="text-orange-600 hover:text-orange-700 active:text-orange-800 transition underline"
+			>
+				zalogować
+			</a>
+			aby dodać przepis.
+		</span>
 	{/if}
 </div>
