@@ -14,10 +14,9 @@
 	<meta name="description" content="Strona dodawania przepisu" />
 </svelte:head>
 
-<div class="container max-w-2xl mx-auto">
-
+<section class="container mx-auto flex-1 flex flex-col justify-center">
 	{#if $account.isLoggedIn}
-		<form on:submit|preventDefault={submitRecipe} class="flex flex-col gap-5">
+		<form on:submit|preventDefault={submitRecipe} class="flex flex-col gap-5 max-w-2xl mx-auto">
 			<div class="flex flex-col gap-2">
 				<label for="name">Nazwa przepisu</label>
 				<input
@@ -218,15 +217,14 @@
 			</button>
 		</form>
 	{:else}
-		<span>
-			Musisz się
+		<span class="text-xl text-center">
 			<a
 				href="/konto"
-				class="text-orange-600 hover:text-orange-700 active:text-orange-800 transition underline"
+				class="text-orange-600 hover:text-orange-700 active:text-orange-800 transition"
 			>
-				zalogować
+				Zaloguj się
 			</a>
 			aby dodać przepis.
 		</span>
 	{/if}
-</div>
+</section>

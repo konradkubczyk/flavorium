@@ -33,12 +33,12 @@
 	<meta name="description" content="Strona główna" />
 </svelte:head>
 
-<section class="container mx-auto">
+<section class="container mx-auto flex-1 flex">
 	<div
-		class="bg-center bg-cover rounded-3xl overflow-hidden"
+		class="bg-center bg-cover rounded-3xl overflow-hidden flex-1"
 		style="background-image: url('/sam-moghadam-khamseh-yxZSAjyToP4-unsplash.jpg');"
 	>
-		<div class="px-10 py-64 bg-cyan-950/75">
+		<div class="p-10 bg-cyan-950/75 h-full flex flex-col justify-center">
 			<div class="text-cyan-50 text-7xl text-center">
 				Poznaj <a
 					href="/przepisy"

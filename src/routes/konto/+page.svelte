@@ -70,17 +70,19 @@
 
 {#if $account.isLoggedIn }
 
-	<section class="container mx-auto py-80 text-center">
-		<div class="text-3xl text-cyan-800">Zalogowano. Chcesz się wylogować?</div>
-		<button on:click={accountService.logout} class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
-		>Wyloguj</button>
+	<section class="container mx-auto p-10 text-center flex-1 flex flex-col justify-center">
+		<div>
+			<div class="text-3xl text-cyan-800">Zalogowano. Chcesz się wylogować?</div>
+			<button on:click={accountService.logout} class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
+			>Wyloguj</button>
+		</div>
 	</section>
 
 {:else }
 
-	<section class="container mx-auto text-amber-950">
-		<div class="flex flex-col-reverse xl:flex-row rounded-3xl overflow-hidden">
-			<div class="w-full xl:w-2/5 p-10 xl:py-80 bg-amber-100">
+	<section class="container mx-auto text-amber-950 flex-1 flex">
+		<div class="flex flex-col-reverse xl:flex-row rounded-3xl overflow-hidden flex-1">
+			<div class="w-full xl:w-2/5 p-10 bg-amber-100 flex flex-col justify-center">
 				{#if accountCreationMode}
 					<h1 class="text-2xl">Utwórz konto</h1>
 					<p class="mt-5 text-amber-800">
