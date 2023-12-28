@@ -14,9 +14,12 @@
 	<meta name="description" content="Strona dodawania przepisu" />
 </svelte:head>
 
-<section class="container mx-auto flex-1 flex flex-col justify-center">
 	{#if $account.isLoggedIn}
-		<form on:submit|preventDefault={submitRecipe} class="flex flex-col gap-5 max-w-2xl mx-auto">
+		<section class="container mx-auto flex-1 flex flex-col max-w-2xl">
+			<div class="text-center my-20">
+				<h1 class="text-3xl">Dodaj przepis</h1>
+			</div>
+			<form on:submit|preventDefault={submitRecipe} class="flex flex-col gap-5 mx-auto">
 			<div class="flex flex-col gap-2">
 				<label for="name">Nazwa przepisu</label>
 				<input
@@ -216,7 +219,9 @@
 				{/if}
 			</button>
 		</form>
+		</section>
 	{:else}
+		<section class="container mx-auto flex-1 flex flex-col justify-center">
 		<span class="text-xl text-center">
 			<a
 				href="/konto"
@@ -226,5 +231,5 @@
 			</a>
 			aby dodać przepis.
 		</span>
+		</section>
 	{/if}
-</section>
