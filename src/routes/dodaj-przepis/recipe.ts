@@ -34,13 +34,23 @@ export async function submitRecipe() {
 export function refreshArrays() {
 	if (recipe.ingredients[recipe.ingredients.length - 1].name) {
 		recipe.ingredients.push(new Ingredient());
-	} else if (recipe.ingredients.length > 1 && !recipe.ingredients[recipe.ingredients.length - 2].name) {
-		recipe.ingredients.pop();
 	}
 	if (recipe.steps[recipe.steps.length - 1].description) {
 		recipe.steps.push(new Step());
-	} else if (recipe.steps.length > 1 && !recipe.steps[recipe.steps.length - 2].description) {
-		recipe.steps.pop();
+	}
+
+	for (let i = 0; i < recipe.ingredients.length - 1; i++) {
+		if (!recipe.ingredients[i].name && !recipe.ingredients[i].quantity && !recipe.ingredients[i].unit) {
+			recipe.ingredients.splice(i, 1);
+			i--;
+		}
+	}
+
+	for (let i = 0; i < recipe.steps.length - 1; i++) {
+		if (!recipe.steps[i].description) {
+			recipe.steps.splice(i, 1);
+			i--;
+		}
 	}
 }
 
