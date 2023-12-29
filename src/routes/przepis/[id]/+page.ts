@@ -12,8 +12,6 @@ export async function load({ params }) {
     );
     const data = await res.json();
 
-    console.log(data);
-
     return {
         recipe: data
     }
