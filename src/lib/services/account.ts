@@ -15,9 +15,9 @@ export async function syncState() {
 	);
 	if (res.ok) {
 		const data = await res.json();
-		account.set(new Account(data.name, data.email, true));
+		account.set(new Account(data.$id, data.name, data.email, true));
 	} else {
-		account.set(new Account('', '', false));
+		account.set(new Account('', '', '', false));
 	}
 }
 

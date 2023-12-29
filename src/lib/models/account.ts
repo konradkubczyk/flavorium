@@ -1,12 +1,22 @@
 export class Account {
+	private _id: string;
 	private _name: string;
 	private _email: string;
 	private _isLoggedIn: boolean;
 
-	constructor(name = '', email = '', isLoggedIn = false) {
+	constructor(id = '', name = '', email = '', isLoggedIn = false) {
+		this._id = id;
 		this._name = name;
 		this._email = email;
 		this._isLoggedIn = isLoggedIn;
+	}
+
+	get id(): string {
+		return this._id;
+	}
+
+	set id(value: string) {
+		this._id = value;
 	}
 
 	get name(): string {

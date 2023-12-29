@@ -1,5 +1,28 @@
 <script lang="ts">
+	import { account } from '$lib/stores/account.ts';
+	import { goto } from '$app/navigation';
+
 	export let data;
+
+	async function deleteRecipe(id: string) {
+		const res = await fetch(
+			`https://cloud.appwrite.io/v1/databases/655bd832ea6f472b15d8/collections/655bd852b4a5ec1fd409/documents/${id}`,
+			{
+				method: 'DELETE',
+				credentials: 'include',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-Appwrite-Project': '6556209062be5c6ce4b0'
+				}
+			}
+		);
+		if (!res.ok) {
+			alert('Wystąpił błąd podczas usuwania przepisu.');
+			return;
+		}
+		alert('Przepis został usunięty.');
+		goto('/przepisy');
+	}
 </script>
 
 <div class="container mx-auto">
@@ -57,4 +80,11 @@
 			</div>
 		{/each}
 	</div>
+
+	{#if data.recipe.$permissions.includes(`delete("user:${$account.id}")`) }
+		<button class="mt-10 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+						on:click={() => deleteRecipe(data.recipe.$id)}>
+			Usuń
+		</button>
+	{/if}
 </div>
