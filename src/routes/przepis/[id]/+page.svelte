@@ -23,6 +23,23 @@
 		alert('Przepis został usunięty.');
 		goto('/przepisy');
 	}
+	import { text } from '@sveltejs/kit';
+	import { comment } from 'postcss';
+	
+
+
+	class Comment {
+		author?: string;
+		text?: string;
+		score?: string;
+	}
+	const commentData = new Comment();
+	let allComments: Comment[] = [];
+	function handleSubmit() {
+		let singleComment = structuredClone(commentData);
+		allComments = [...allComments, { ...singleComment }];
+		console.log(allComments);
+	}
 </script>
 
 <div class="container mx-auto">
@@ -87,4 +104,35 @@
 			Usuń
 		</button>
 	{/if}
+	<div id="commentSection">
+		<div id="comments-counter">Liczba komentarzy: {allComments.length}</div>
+		<form id="addComment" on:submit|preventDefault={handleSubmit}>
+			<input
+				id="commentText"
+				class="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
+				bind:value={commentData.text}
+			/>
+			<!--Ten kod jest do wyrzucenia poprostu, jest to placeholder na normalny kod-->
+
+			<div class="stars">
+				<input type="radio" name="rating" value="1" bind:group={commentData.score} />
+				<input type="radio" name="rating" value="2" bind:group={commentData.score}/>
+				<input type="radio" name="rating" value="3" bind:group={commentData.score}/>
+				<input type="radio" name="rating" value="4" bind:group={commentData.score}/>
+				<input type="radio" name="rating" value="5" bind:group={commentData.score}/>
+			<button
+				type="submit"
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+				>Dodaj Komentarz</button
+			>
+		</form>
+
+		<div id="comments">
+			{#each allComments as singularComment}
+				<p>{singularComment.text} , {singularComment.score}/5</p>
+				
+			{/each}
+			
+		</div>
+	</div>
 </div>
