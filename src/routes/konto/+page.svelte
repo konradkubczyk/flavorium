@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { account } from '$lib/stores/account';
-	import * as accountService from '$lib/services/account'
+	import * as accountService from '$lib/services/account';
 
 	interface Credentials {
 		name: string;
@@ -33,10 +33,10 @@
 				authError = 'Nieprawidłowy email lub hasło.';
 				break;
 			case 429:
-				authError = 'Zbyt wiele prób logowania. Spróbuj ponownie później.'
+				authError = 'Zbyt wiele prób logowania. Spróbuj ponownie później.';
 				break;
 			default:
-				authError = 'Wystąpił nieznany błąd.'
+				authError = 'Wystąpił nieznany błąd.';
 		}
 	}
 
@@ -55,10 +55,10 @@
 				authError = 'Konto o podanym adresie email już istnieje.';
 				break;
 			case 429:
-				authError = 'Wystąpił błąd. Sprawdź dane logowania i spróbuj ponownie.'
+				authError = 'Wystąpił błąd. Sprawdź dane logowania i spróbuj ponownie.';
 				break;
 			default:
-				authError = 'Wystąpił błąd. Upewnij się, że wybrane hasło jest bezpieczne.'
+				authError = 'Wystąpił błąd. Upewnij się, że wybrane hasło jest bezpieczne.';
 		}
 	}
 </script>
@@ -73,8 +73,10 @@
 	<section class="container mx-auto p-10 text-center flex-1 flex flex-col justify-center">
 		<div>
 			<div class="text-3xl text-cyan-800">Zalogowano. Chcesz się wylogować?</div>
-			<button on:click={accountService.logout} class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
-			>Wyloguj</button>
+			<button on:click={accountService.logout}
+							class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
+			>Wyloguj
+			</button>
 		</div>
 	</section>
 

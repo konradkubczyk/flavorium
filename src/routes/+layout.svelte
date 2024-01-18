@@ -2,7 +2,7 @@
 	import Header from './Header.svelte';
 	import Footer from './Footer.svelte';
 	import './styles.css';
-	import "../app.css";
+	import '../app.css';
 
 	// Switch to SPA mode by disabling SSR
 	export const ssr = false;

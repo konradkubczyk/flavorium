@@ -23,18 +23,16 @@
 		alert('Przepis został usunięty.');
 		goto('/przepisy');
 	}
-	import { text } from '@sveltejs/kit';
-	import { comment } from 'postcss';
-	
-
 
 	class Comment {
 		author?: string;
 		text?: string;
 		score?: string;
 	}
+
 	const commentData = new Comment();
 	let allComments: Comment[] = [];
+
 	function handleSubmit() {
 		let singleComment = structuredClone(commentData);
 		allComments = [...allComments, { ...singleComment }];
@@ -116,23 +114,24 @@
 
 			<div class="stars">
 				<input type="radio" name="rating" value="1" bind:group={commentData.score} />
-				<input type="radio" name="rating" value="2" bind:group={commentData.score}/>
-				<input type="radio" name="rating" value="3" bind:group={commentData.score}/>
-				<input type="radio" name="rating" value="4" bind:group={commentData.score}/>
-				<input type="radio" name="rating" value="5" bind:group={commentData.score}/>
-			<button
-				type="submit"
-				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-				>Dodaj Komentarz</button
-			>
+				<input type="radio" name="rating" value="2" bind:group={commentData.score} />
+				<input type="radio" name="rating" value="3" bind:group={commentData.score} />
+				<input type="radio" name="rating" value="4" bind:group={commentData.score} />
+				<input type="radio" name="rating" value="5" bind:group={commentData.score} />
+				<button
+					type="submit"
+					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+				>Dodaj Komentarz
+				</button
+				>
 		</form>
 
 		<div id="comments">
 			{#each allComments as singularComment}
 				<p>{singularComment.text} , {singularComment.score}/5</p>
-				
+
 			{/each}
-			
+
 		</div>
 	</div>
 </div>
