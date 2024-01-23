@@ -42,8 +42,7 @@
 					<div class="flex gap-5 flex-wrap">
 						<div class="whitespace-nowrap">
 							<span>Dodano:</span>
-							<span class="font-bold">{new Date(recipe.$createdAt).getDate()}/{new Date(recipe.$createdAt).getMonth()}
-								/{new Date(recipe.$createdAt).getFullYear()}</span>
+							<span class="font-bold">{new Date(recipe.$createdAt).getDate()}/{new Date(recipe.$createdAt).getMonth() + 1}/{new Date(recipe.$createdAt).getFullYear()}</span>
 						</div>
 					</div>
 				</div>
