@@ -64,7 +64,7 @@
 		style="background-image: url('/sam-moghadam-khamseh-yxZSAjyToP4-unsplash.jpg');"
 	>
 		<div class="p-10 bg-cyan-950/75 h-full flex flex-col justify-center">
-			<div class="text-cyan-50 text-7xl text-center">
+			<h1 class="text-cyan-50 text-7xl text-center">
 				Poznaj <a
 				href="/przepisy"
 				class="underline decoration-cyan-700/50 hover:decoration-cyan-700 transition"
@@ -75,7 +75,7 @@
 					href="/dodaj-przepis"
 					class="underline decoration-cyan-700/50 hover:decoration-cyan-700 transition">dziel się</a
 				> doświadczeniem
-			</div>
+			</h1>
 		</div>
 	</div>
 </section>

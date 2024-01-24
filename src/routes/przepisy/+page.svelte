@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-
 	export let data;
 </script>
 
@@ -10,7 +8,7 @@
 </svelte:head>
 
 <div class="container mx-auto">
-	<div class="text-center my-20">
+	<div class="text-center my-10">
 		<h1 class="text-3xl">Lista przepisów</h1>
 		<p class="mt-5">
 			Tu znajdziesz listę wszystkich przepisów przesłanych przez innych internautów.
@@ -18,8 +16,8 @@
 	</div>
 	<div class="flex flex-col gap-5">
 		{#each data.recipes as recipe}
-			<button
-				on:click={() => goto(`/przepis/${recipe.$id}`)}
+			<a
+				href={`/przepis/${recipe.$id}`}
 				class="flex flex-col gap-5 bg-slate-100 rounded-lg p-5 text-left hover:bg-slate-200/75 transition-colors"
 			>
 				<h2 class="text-xl">{recipe.name}</h2>
@@ -46,7 +44,7 @@
 						</div>
 					</div>
 				</div>
-			</button>
+			</a>
 		{/each}
 	</div>
 </div>
