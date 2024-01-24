@@ -1,12 +1,8 @@
 <script lang="ts">
 	import { account } from '$lib/stores/account';
 	import * as accountService from '$lib/services/account';
-
-	interface Credentials {
-		name: string;
-		email: string;
-		password: string;
-	}
+	import type { Credentials } from '$lib/models/credentials.ts';
+	import { goto } from '$app/navigation';
 
 	let credentials: Credentials = {
 		name: '',
@@ -72,11 +68,21 @@
 
 	<section class="container mx-auto p-10 text-center flex-1 flex flex-col justify-center">
 		<div>
-			<div class="text-3xl text-cyan-800">Zalogowano. Chcesz się wylogować?</div>
-			<button on:click={accountService.logout}
-							class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
-			>Wyloguj
-			</button>
+			<div class="text-3xl text-cyan-800 font-bold">Zalogowano.</div>
+			<div class="flex gap-3 justify-center">
+				<button on:click={accountService.logout}
+								class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
+				>Wyloguj się
+				</button>
+				<button on:click={() => { goto('/dodaj-przepis') }}
+								class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
+				>Dodaj przepis
+				</button>
+				<button on:click={() => { goto('/przepisy') }}
+								class="mt-5 py-2 px-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-600 active:hover:bg-cyan-700 transition"
+				>Przeglądaj przepisy
+				</button>
+			</div>
 		</div>
 	</section>
 
