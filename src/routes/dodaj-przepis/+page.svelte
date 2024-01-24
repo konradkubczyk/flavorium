@@ -17,7 +17,7 @@
 {#if $account.isLoggedIn}
 	<section class="container mx-auto flex-1 flex flex-col max-w-2xl">
 		<div class="text-center my-10">
-			<h1 class="text-3xl">Dodaj przepis</h1>
+			<h1 class="text-3xl font-bold">Dodaj przepis</h1>
 		</div>
 		<form on:submit|preventDefault={submitRecipe} class="flex flex-col gap-5 mx-auto">
 			<div class="flex flex-col gap-2">
