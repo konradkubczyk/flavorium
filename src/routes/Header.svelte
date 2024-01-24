@@ -5,7 +5,7 @@
 	import { account } from '$lib/stores/account';
 </script>
 
-<header class="container mx-auto flex gap-10 py-5 justify-between">
+<header class="container mx-auto flex gap-x-10 gap-y-1 py-3 justify-center md:justify-between flex-wrap">
 	<div>
 		<a href="/" class="flex items-center gap-3 group">
 			<img src={logo} alt="Flavorium logo" class="w-16 h-16" />
@@ -16,12 +16,12 @@
 			</span>
 		</a>
 	</div>
-	<div class="flex gap-5 items-center">
+	<div class="flex gap-5 items-center overflow-x-scroll">
 		<nav class="flex items-center">
 			<ul class="flex gap-5">
 				<li
 					aria-current={$page.url.pathname === '/' ? 'page' : undefined}
-					class="font-semibold text-orange-800 border-y-2 border-transparent aria-[current='page']:border-b-orange-600/50 hover:border-b-orange-600 transition duration-200 select-none self-center"
+					class="font-semibold text-orange-800 border-y-2 border-transparent aria-[current='page']:border-b-orange-600/50 hover:border-b-orange-600 transition duration-200 select-none self-center hidden md:block"
 				>
 					<a href="/">Strona główna</a>
 				</li>

@@ -41,35 +41,35 @@
 </script>
 
 <div class="container mx-auto">
-	<div class="flex justify-between items-center my-20">
+	<div class="flex items-center my-20 flex-col justify-center text-center md:flex-row md:justify-between md:text-left">
 		<div>
-			<h1 class="text-3xl">{data.recipe.name}</h1>
+			<h1 class="text-3xl font-bold">{data.recipe.name}</h1>
 			<span class="mt-1 flex items-center gap-2 uppercase tracking-widest text-sm text-gray-500">
 				{data.recipe.category}
 				<span class="text-xs">/</span>
 				{data.recipe.subcategory}
 			</span>
 		</div>
-		<div class="flex gap-5 flex-wrap text-right items-center">
+		<div class="flex gap-5 flex-wrap text-center md:text-right items-center mt-6 md:mt-0">
 			<div class="flex flex-col">
-				<span class="uppercase tracking-widest text-xs text-gray-500">poziom trudności</span>
+				<span class="uppercase tracking-widest text-xs text-gray-500">Poziom trudności</span>
 				<span class="text-2xl">{data.recipe.difficulty}/3</span>
 			</div>
 			<div class="border-r border-gray-300 h-10"></div>
 			<div class="flex flex-col">
-				<span class="uppercase tracking-widest text-xs text-gray-500">czas przygotowania</span>
+				<span class="uppercase tracking-widest text-xs text-gray-500">Czas przygotowania</span>
 				<span class="text-2xl">{data.recipe.time} min</span>
 			</div>
 			<div class="border-r border-gray-300 h-10"></div>
 			<div class="flex flex-col">
-				<span class="uppercase tracking-widest text-xs text-gray-500">porcje</span>
+				<span class="uppercase tracking-widest text-xs text-gray-500">Porcje</span>
 				<span class="text-2xl">{data.recipe.servings}</span>
 			</div>
 		</div>
 	</div>
-	<div class="grid grid-cols-3 gap-5">
-		<div class="rounded-lg p-5 bg-yellow-50 text-yellow-950 col-span-1">
-			<h2 class="text-xl">Składniki</h2>
+	<div class="flex flex-col md:flex-row gap-3">
+		<div class="rounded-lg p-5 bg-yellow-50 text-yellow-950 md:w-1/3">
+			<h2 class="text-xl font-semibold">Składniki</h2>
 			<ul class="mt-5 flex flex-col gap-3">
 				{#each data.recipe.ingredients as ingredient}
 					<li class="flex justify-between border-b border-dotted border-b-yellow-800 py-2">
@@ -79,15 +79,15 @@
 				{/each}
 			</ul>
 		</div>
-		<div class="rounded-lg p-5 bg-teal-50 text-teal-950 col-span-2">
-			<h2 class="text-xl">Opis</h2>
+		<div class="rounded-lg p-5 bg-teal-50 text-teal-950 w-full">
+			<h2 class="text-xl font-semibold">Opis</h2>
 			<p class="mt-5">{data.recipe.description}</p>
 		</div>
 	</div>
 
-	<h2 class="mt-10 text-xl">Sposób przygotowania</h2>
+	<h2 class="mt-10 text-xl font-semibold">Sposób przygotowania</h2>
 
-	<div class="mt-5 flex flex-col gap-5">
+	<div class="mt-5 flex flex-col gap-3">
 		{#each data.recipe.steps as step, index}
 			<div class="border-l-2 border-emerald-600 pl-5">
 				<h3 class="text-lg">Krok {index + 1}</h3>
@@ -102,36 +102,52 @@
 			Usuń
 		</button>
 	{/if}
-	<div id="commentSection">
-		<div id="comments-counter">Liczba komentarzy: {allComments.length}</div>
-		<form id="addComment" on:submit|preventDefault={handleSubmit}>
-			<input
-				id="commentText"
-				class="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
-				bind:value={commentData.text}
-			/>
-			<!--Ten kod jest do wyrzucenia poprostu, jest to placeholder na normalny kod-->
 
-			<div class="stars">
-				<input type="radio" name="rating" value="1" bind:group={commentData.score} />
-				<input type="radio" name="rating" value="2" bind:group={commentData.score} />
-				<input type="radio" name="rating" value="3" bind:group={commentData.score} />
-				<input type="radio" name="rating" value="4" bind:group={commentData.score} />
-				<input type="radio" name="rating" value="5" bind:group={commentData.score} />
-				<button
-					type="submit"
-					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-				>Dodaj Komentarz
-				</button
-				>
+	<div id="commentSection" class="mt-10">
+		<h2 class="mb-4 text-2xl font-semibold">
+			Opinie
+		</h2>
+		<div id="comments-counter" class="mb-4 text-lg">Liczba opinii: {allComments.length}</div>
+		<form id="addComment" on:submit|preventDefault={handleSubmit} class="mb-4">
+    <textarea
+			id="commentText"
+			class="w-full border-2 border-gray-200 p-3 rounded-lg outline-none focus:border-blue-600"
+			bind:value={commentData.text}
+			placeholder="Dodaj komentarz..."
+			required
+		></textarea>
+
+			<div class="flex items-center justify-between mt-2 space-x-2">
+				<div>
+					{#each [1, 2, 3, 4, 5] as rating}
+						<input type="radio" name="rating" value={rating} bind:group={commentData.score} id={`star${rating}`}
+									 class="hidden" />
+						<label for={`star${rating}`} class="text-xl cursor-pointer text-blue-600">
+							{#if commentData.score >= rating}
+								&#9733; <!-- Highlighted star -->
+							{:else}
+								&#9734; <!-- Unhighlighted star -->
+							{/if}
+						</label>
+					{/each}
+				</div>
+
+				<button type="submit"
+								class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 active:bg-blue-800 transition disabled:opacity-50 disabled:hover:bg-blue-600 disabled:cursor-not-allowed">
+					Dodaj Komentarz
+				</button>
+			</div>
 		</form>
 
 		<div id="comments">
 			{#each allComments as singularComment}
-				<p>{singularComment.text} , {singularComment.score}/5</p>
-
+				<div class="mb-4 p-4 border border-blue-gray-200 rounded">
+					<p class="text-blue-gray-700 mb-2">{singularComment.text}</p>
+					<p class="text-blue-gray-500">{singularComment.score}/5</p>
+				</div>
 			{/each}
-
 		</div>
 	</div>
+
+
 </div>

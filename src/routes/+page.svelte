@@ -59,13 +59,13 @@
 	<meta name="description" content="Strona główna" />
 </svelte:head>
 
-<section class="container mx-auto">
+<section class="container mx-auto mt-3 sm:mt-0">
 	<div
 		class="bg-center bg-cover rounded-3xl overflow-hidden"
 		style="background-image: url('/sam-moghadam-khamseh-yxZSAjyToP4-unsplash.jpg');"
 	>
-		<div class="p-10 bg-cyan-950/75 h-full flex flex-col justify-center py-64">
-			<h1 class="text-cyan-50 text-7xl text-center">
+		<div class="bg-cyan-950/75 h-full flex flex-col justify-center py-20 lg:py-64 px-5 lg:px-10">
+			<h1 class="text-cyan-50 text-4xl lg:text-7xl font-bold lg:font-normal text-center">
 				Poznaj <a
 				href="/przepisy"
 				class="underline decoration-cyan-700/50 hover:decoration-cyan-700 transition"
@@ -81,13 +81,15 @@
 	</div>
 </section>
 {#if recommendedRecipes.length > 0}
-	<section class="container mx-auto mt-10 flex-1">
-		<h2 class="text-center text-3xl text-sky-950 font-bold">Losowe przepisy</h2>
-		<p class="text-center mt-2 text-sky-900">
-			Sprawdź losowo wybrane przepisy spośród dodanych przez naszych użytkowników. Może znajdziesz
-			coś dla siebie?
-		</p>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+	<section class="container mx-auto flex-1">
+		<div class="py-9">
+			<h2 class="text-center text-3xl text-sky-950 font-bold">Losowe przepisy</h2>
+			<p class="text-center mt-2 text-sky-900">
+				Sprawdź losowo wybrane przepisy spośród dodanych przez naszych użytkowników. Może znajdziesz
+				coś dla siebie?
+			</p>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
 			{#each recommendedRecipes as recommendedRecipe}
 				<a
 					href="/przepis/{recommendedRecipe['$id']}"
