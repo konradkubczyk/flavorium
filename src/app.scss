@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(https://fonts.bunny.net/css?family=poppins:400|red-hat-text:400);
+
+$primary-background: #f9fafb;
+
+body {
+	background-color: $primary-background;
+	font-family: 'Red Hat Text', sans-serif;
+}
+
+button {
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	transition: 200ms ease;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+}
+
+button:active {
+	transform: scale(0.99);
+}
+
+#site-name,
+h1,
+h2,
+h3,
+button {
+	font-family: 'Poppins', sans-serif;
+}

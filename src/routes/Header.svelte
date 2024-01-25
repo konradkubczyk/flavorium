@@ -12,6 +12,7 @@
 		<a href="/" class="flex items-center gap-3 group">
 			<img src={logo} alt="Flavorium logo" class="w-16 h-16" />
 			<span
+				id="site-name"
 				class="text-2xl font-semibold bg-gradient-to-tr from-orange-400 to-pink-900 bg-clip-text text-transparent select-none border-y-2 border-transparent group-hover:border-b-rose-800/10 transition duration-200 leading-6"
 			>
 				Flavorium
