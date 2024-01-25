@@ -5,7 +5,9 @@
 	import { account } from '$lib/stores/account';
 </script>
 
-<header class="container mx-auto flex gap-x-10 gap-y-1 py-3 justify-center md:justify-between flex-wrap">
+<header
+	class="container mx-auto flex gap-x-10 gap-y-1 py-3 justify-center md:justify-between flex-wrap"
+>
 	<div>
 		<a href="/" class="flex items-center gap-3 group">
 			<img src={logo} alt="Flavorium logo" class="w-16 h-16" />

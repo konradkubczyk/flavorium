@@ -11,11 +11,11 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:

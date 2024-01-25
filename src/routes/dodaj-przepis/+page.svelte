@@ -123,7 +123,7 @@
 							disabled={isSubmitting}
 						>
 							<option disabled selected value="">Wybierz jednostkę</option>
-							{#each Object.keys(Unit).filter(unit => isNaN(Number(unit))) as unit}
+							{#each Object.keys(Unit).filter((unit) => isNaN(Number(unit))) as unit}
 								<option value={unit}>{unit}</option>
 							{/each}
 						</select>
@@ -160,7 +160,7 @@
 					disabled={isSubmitting}
 				>
 					<option disabled selected value="">Wybierz kategorię</option>
-					{#each Object.keys(CategoryEnum).filter(category => isNaN(Number(category))) as category}
+					{#each Object.keys(CategoryEnum).filter( (category) => isNaN(Number(category)) ) as category}
 						<option value={category}>{category}</option>
 					{/each}
 				</select>
@@ -177,7 +177,7 @@
 						disabled={isSubmitting}
 					>
 						<option disabled selected value="">Wybierz podkategorię</option>
-						{#each Object.keys(SubcategoryEnum).filter(subcategory => isNaN(Number(subcategory))) as subcategory}
+						{#each Object.keys(SubcategoryEnum).filter( (subcategory) => isNaN(Number(subcategory)) ) as subcategory}
 							<option value={subcategory}>{subcategory}</option>
 						{/each}
 					</select>
@@ -208,9 +208,10 @@
 				{/if}
 			</div>
 
-			<button type="submit"
-							class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 active:bg-blue-800 transition disabled:opacity-50 disabled:hover:bg-blue-600 disabled:cursor-not-allowed"
-							disabled={isSubmitting}
+			<button
+				type="submit"
+				class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 active:bg-blue-800 transition disabled:opacity-50 disabled:hover:bg-blue-600 disabled:cursor-not-allowed"
+				disabled={isSubmitting}
 			>
 				{#if isSubmitting}
 					<p>Przesyłanie...</p>
@@ -223,10 +224,7 @@
 {:else}
 	<section class="container mx-auto flex-1 flex flex-col justify-center">
 		<span class="text-xl text-center">
-			<a
-				href="/konto"
-				class="text-blue-600 hover:text-blue-700 active:text-blue-800 transition"
-			>
+			<a href="/konto" class="text-blue-600 hover:text-blue-700 active:text-blue-800 transition">
 				Zaloguj się
 			</a>
 			aby dodać przepis.

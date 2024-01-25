@@ -16,11 +16,11 @@ export async function submitRecipe() {
 				'X-Appwrite-Project': '6556209062be5c6ce4b0'
 			},
 			body: JSON.stringify({
-				'documentId': 'unique()',
-				'data': {
+				documentId: 'unique()',
+				data: {
 					...recipe,
-					'ingredients': recipe.ingredients.filter(ingredient => ingredient.name !== null),
-					'steps': recipe.steps.filter(step => step.description !== null)
+					ingredients: recipe.ingredients.filter((ingredient) => ingredient.name !== null),
+					steps: recipe.steps.filter((step) => step.description !== null)
 				}
 			})
 		}
@@ -40,7 +40,11 @@ export function refreshArrays() {
 	}
 
 	for (let i = 0; i < recipe.ingredients.length - 1; i++) {
-		if (!recipe.ingredients[i].name && !recipe.ingredients[i].quantity && !recipe.ingredients[i].unit) {
+		if (
+			!recipe.ingredients[i].name &&
+			!recipe.ingredients[i].quantity &&
+			!recipe.ingredients[i].unit
+		) {
 			recipe.ingredients.splice(i, 1);
 			i--;
 		}

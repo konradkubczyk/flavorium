@@ -4,7 +4,7 @@ export enum Unit {
 	'kg',
 	'ml',
 	'l',
-	'szt.',
+	'szt.'
 }
 
 export enum CategoryEnum {
