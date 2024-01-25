@@ -1,5 +1,3 @@
-import { each } from 'cypress/types/bluebird';
-
 describe('template spec', () => {
 	it('Adds a first recipe and then checks if it is present on recipe list site', () => {
 		cy.visit('http://localhost:5173/  ');
