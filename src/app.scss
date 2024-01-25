@@ -4,7 +4,7 @@
 
 @import url(https://fonts.bunny.net/css?family=poppins:400|red-hat-text:400);
 
-$primary-background: #f9fafb;
+$primary-background: #fafafa;
 
 body {
 	background-color: $primary-background;
@@ -12,18 +12,25 @@ body {
 }
 
 button {
+	$default-button-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
 	padding: 10px 15px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	box-shadow: $default-button-shadow;
 	transition: 200ms ease;
 	text-transform: uppercase;
 	letter-spacing: 0.05rem;
-}
 
-button:active {
-	transform: scale(0.99);
+	&:hover {
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	&:active {
+		transform: scale(0.99);
+		box-shadow: none;
+	}
 }
 
 #site-name,
@@ -32,4 +39,13 @@ h2,
 h3,
 button {
 	font-family: 'Poppins', sans-serif;
+}
+
+#featured-recipe-item,
+#recipe-list-item {
+	transition: 200ms ease;
+
+	&:hover:active {
+		transform: scale(0.995);
+	}
 }

@@ -4,8 +4,10 @@
 </script>
 
 <a
+	id="recipe-list-item"
 	href={`/przepis/${recipe.$id}`}
 	class="flex flex-col gap-5 bg-slate-100 rounded-lg px-5 py-3 text-left hover:bg-slate-200/75 transition-colors"
+	draggable="false"
 >
 	<h2 class="text-xl font-semibold">{recipe.name}</h2>
 	<p>{recipe.description}</p>
