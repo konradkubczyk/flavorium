@@ -32,11 +32,13 @@
 
 <div class="container mx-auto">
 	<div
-		class="flex items-center my-20 flex-col justify-center text-center md:flex-row md:justify-between md:text-left"
+		class="flex items-center my-20 flex-col justify-center md:flex-row md:justify-between gap-10"
 	>
-		<div>
-			<h1 class="text-3xl font-bold">{data.recipe.name}</h1>
-			<span class="mt-1 flex items-center gap-2 uppercase tracking-widest text-sm text-gray-500">
+		<div class="flex flex-col-reverse md:flex-col">
+			<h1 class="text-3xl font-bold text-center md:text-left">{data.recipe.name}</h1>
+			<span
+				class="mt-1 flex items-center gap-2 uppercase tracking-widest text-sm text-gray-500 justify-center md:justify-start"
+			>
 				{data.recipe.category}
 				<span class="text-xs">/</span>
 				{data.recipe.subcategory}
@@ -51,11 +53,11 @@
 
 	<h2 class="mt-10 text-xl font-semibold">Sposób przygotowania</h2>
 
-	<div class="mt-5 flex flex-col gap-3">
+	<div class="mt-5 flex flex-col gap-5">
 		{#each data.recipe.steps as step, index}
 			<div class="border-l-2 border-emerald-600 pl-5">
 				<h3 class="text-lg">Krok {index + 1}</h3>
-				<p class="mt-5">{step.description}</p>
+				<p>{step.description}</p>
 			</div>
 		{/each}
 	</div>
@@ -68,6 +70,8 @@
 			Usuń
 		</button>
 	{/if}
+
+	<hr class="mt-14" />
 
 	<Reviews></Reviews>
 </div>
